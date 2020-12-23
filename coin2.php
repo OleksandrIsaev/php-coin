@@ -14,17 +14,26 @@
             <h1>Your Choice</h1>
             <?php
                 $level = $_POST ["level"];
+                if($level == "easy"){
+                    echo("<img class='easy1' src='img/easy.jpg'>");
+                }
+                if($level == "medium"){
+                    echo("<img class='medium1' src='img/medium.jpg'>");
+                }
+                if($level == "hard"){
+                    echo("<img class='hard1' src='img/hard.jpg'>");
+                }
+                if(isset ($_POST ["count"])){
+                    $count = $_POST["count"];
+                }else{
+                    $count = 1;
+                }
                 if (isset ($_POST["choice"])){
-                    if(isset ($_POST ["count"])){
-                        $count = $_POST["count"];
-                    }else{
-                        $count = 1;
-                    }
                     $choice = $_POST["choice"];
                     $coin = rand(0,1);
                     if ($level == "easy"){
                         if($choice == $coin){
-                                echo("<h1 class=header>Victory!</h1>");
+                                echo("<h1 class='header'>Victory!</h1>");
                         }
                         else{
                         rand(0,1);
@@ -42,7 +51,7 @@
                         }
                     }else if($level == "hard"){
                         if($choice != $coin){
-                            echo("<h1 class=header>Lose!</h1>");
+                            echo("<h1 class='header'>Lose!</h1>");
                         }
                         else{
                             $coin = rand(0,1);
@@ -56,18 +65,25 @@
                     $count += 1;
                 }
             ?>
-            <form action="coin2.php" method="POST">
+            <form action="<?php 
+                if ($count != 10){
+                    echo ("coin2.php");
+                }
+                else{
+                    echo("coin3.php");
+                }
+            ?>" method="POST">
                 <div class="second">
                     <a>
-                        <label><input readonly type="hiden" placeholder="Кількість спроб" name="count" value="<?php echo ($count);?>"></label>
+                        <label><input class="traing" readonly type="text" placeholder="0" name="count" value="<?php echo($count);?>"></label>
                     </a>
                     <label><input class="count" type="hidden" name="level" value="<?php echo($level);?>"></label>
                     <a>
-                        <input type="radio" name="choice" value="0">Orel
+                        <input class="ikonka1" type="radio" name="choice" value="0">Orel
                         <label name="choice"></label>
                     </a>
                     <a>
-                        <input type="radio" name="choice" value="1">Reshka
+                        <input class="ikonka2" type="radio" name="choice" value="1">Reshka
                         <label name="choice"></label>
                     </a>
                 </div>
