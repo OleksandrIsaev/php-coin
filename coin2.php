@@ -11,22 +11,22 @@
 <body>
     <div class="wrapper">
         <div class="column">
-            <h1>Your Choice</h1>
+            <h1>Your Choice (you got 10 shots)</h1>
             <?php
                 $level = $_POST ["level"];
                 if($level == "easy"){
-                    echo("<img class='easy1' src='img/easy.jpg'>");
+                    echo("<img class='easy1''>");
                 }
                 if($level == "medium"){
-                    echo("<img class='medium1' src='img/medium.jpg'>");
+                    echo("<img class='medium1''>");
                 }
                 if($level == "hard"){
-                    echo("<img class='hard1' src='img/hard.jpg'>");
+                    echo("<img class='hard1''>");
                 }
                 if(isset ($_POST ["count"])){
                     $count = $_POST["count"];
                 }else{
-                    $count = 1;
+                    $count = 0;
                 }
                 if (isset ($_POST["choice"])){
                     $choice = $_POST["choice"];
@@ -78,16 +78,17 @@
                         <label><input class="traing" readonly type="text" placeholder="0" name="count" value="<?php echo($count);?>"></label>
                     </a>
                     <label><input class="count" type="hidden" name="level" value="<?php echo($level);?>"></label>
+                    <label><input class="count" type="hidden" name="level" value="<?php echo($level);?>"></label>
+                    <label><input class="count" type="hidden" name="globallvl" value="<?php echo($globallvl);?>"></label>
                     <a>
-                        <input class="ikonka1" type="radio" name="choice" value="0">Orel
+                        <input class="ikonka1" type="submit" name="choice" value="Orel">
                         <label name="choice"></label>
                     </a>
                     <a>
-                        <input class="ikonka2" type="radio" name="choice" value="1">Reshka
+                        <input class="ikonka2" type="submit" name="choice" value="Reshka">
                         <label name="choice"></label>
                     </a>
                 </div>
-                <label><input class="bottom" type="submit" value="START"></label>
             </form>
         </div>
     </div>
