@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -22,18 +22,18 @@
             <a>
                 <form action="coin2.php" method="POST">
                     <div class="first">
-                        <input type="hidden" value="easy" name="level">
-                        <input type="hidden" name="globallvl" value="<?php echo($globallvl); ?>">
-                        <input class="easy" type="submit" value="Easy">
+                        <label><input name="globallvl" type="hidden" value="<?php echo($globallvl); ?>" ></label>
+                        <label><input type="hidden" value="easy" name="level"></label>
+                        <label><input class="easy" type="submit" value="Easy" checked></label>
                     </div>
                 </form>
             </a>
             <a>
                 <form action="coin2.php" method="POST">
                     <div class="first">
-                        <input type="hidden" value="medium" name="level">
-                        <input type="hidden" name="globallvl" value="<?php echo($globallvl); ?>">
-                        <input class="medium" type="submit" value="Medium" <?php 
+                    <label><input name="globallvl" type="hidden" value="<?php echo($globallvl); ?>" ></label>
+                    <label><input type="hidden" value="medium" name="level"></label>
+                    <label><input class="medium" type="submit" value="Medium" <?php
                         if ($globallvl < 1){
                             echo("disabled");
                         }
@@ -44,9 +44,9 @@
             <a>
                 <form action="coin2.php" method="POST">
                     <div class="first">
-                        <input type="hidden" value="hard" name="level">
-                        <input type="hidden" name="globallvl" value="<?php echo($globallvl); ?>">
-                        <input class="hard" type="submit" value="Hard" <?php 
+                    <label><input name="globallvl" type="hidden" value="<?php echo($globallvl); ?>" ></label>
+                    <label><input type="hidden" value="hard" name="level"></label>
+                    <label><input class="hard" type="submit" value="Hard" <?php 
                         if ($globallvl < 2){
                             echo("disabled");
                         }
@@ -54,6 +54,8 @@
                     </div>
                 </form>
             </a>
+            <label><input type="hidden" name="count" value="1"></label>
+            <label><input type="hidden" name="victory" value="1"></label>
         </div>
     </div>
 </body>
